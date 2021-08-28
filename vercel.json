@@ -1,7 +1,11 @@
 {
   "functions": {
-    "api/spotify-stats.ts": {
+    "api/spotify-status.ts": {
       "includeFiles": "template/**"
     }
-  }
+  },
+  "rewrites": [
+    { "source": "/init", "destination": "/api/initialize" },
+    { "source": "/", "destination": "/api/spotify-status" }
+  ]
 }
