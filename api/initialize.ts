@@ -7,8 +7,8 @@ export default (req, res) => {
         method: 'post',
         url: 'https://accounts.spotify.com/api/token',
         form: {
-          SPOTIFY_CLIENT_ID: process.env.SPOTIFY_CLIENT_ID,
-          SPOTIFY_CLIENT_SECRET: process.env.SPOTIFY_CLIENT_SECRET,
+          CLIENT_ID: process.env.SPOTIFY_CLIENT_ID,
+          CLIENT_SECRET: process.env.SPOTIFY_CLIENT_SECRET,
           grant_type: 'authorization_code',
           code: req.query.code,
           redirect_uri: process.env.VERCEL_URL,
@@ -22,7 +22,7 @@ export default (req, res) => {
     );
   else {
     return res.send(
-      `<a href="https://accounts.spotify.com/en/authorize?response_type=code&SPOTIFY_CLIENT_ID=${process.env.SPOTIFY_CLIENT_ID}&scope=user-read-currently-playing,user-read-recently-played,user-top-read&redirect_uri=${process.env.VERCEL_URL}">Get Refresh Token</a>`
+      `<a href="https://accounts.spotify.com/en/authorize?response_type=code&CLIENT_ID=${process.env.SPOTIFY_CLIENT_ID}&scope=user-read-currently-playing,user-read-recently-played,user-top-read&redirect_uri=${process.env.VERCEL_URL}">Get Refresh Token</a>`
     );
   }
 };
