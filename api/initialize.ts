@@ -22,7 +22,8 @@ export default (req, res) => {
     );
   else {
     return res.send(
-      `<a href="https://accounts.spotify.com/en/authorize?response_type=code&CLIENT_ID=${process.env.SPOTIFY_CLIENT_ID}&scope=user-read-currently-playing,user-read-recently-played,user-top-read&redirect_uri=${process.env.VERCEL_URL}">Get Refresh Token</a>`
+      `<p>Your redirect url is: <pre>${process.env.VERCEL_URL}</pre></p>
+	  <a href="https://accounts.spotify.com/en/authorize?response_type=code&CLIENT_ID=${process.env.SPOTIFY_CLIENT_ID}&scope=user-read-currently-playing,user-read-recently-played,user-top-read&redirect_uri=${process.env.VERCEL_URL}">Get Refresh Token</a>`
     );
   }
 };
