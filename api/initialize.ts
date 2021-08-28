@@ -7,22 +7,22 @@ export default (req, res) => {
         method: 'post',
         url: 'https://accounts.spotify.com/api/token',
         form: {
-          client_id: process.env.CLIENT_ID,
-          client_secret: process.env.CLIENT_SECRET,
+          SPOTIFY_CLIENT_ID: process.env.SPOTIFY_CLIENT_ID,
+          SPOTIFY_CLIENT_SECRET: process.env.SPOTIFY_CLIENT_SECRET,
           grant_type: 'authorization_code',
           code: req.query.code,
           redirect_uri: process.env.VERCEL_URL,
         },
       },
-      (err, response, body) => {
-        if (err || !body || !JSON.parse(body) || !JSON.parse(body).refresh_token)
+      (err, _, body) => {
+        if (err || !body || !JSON.parse(body) || !JSON.parse(body).SPOTIFY_REFRESH_TOKEN)
           return res.send(`unable to generate refresh token. <a href="${process.env.VERCEL_URL}">Try Again</a>`);
-        return res.send(`Your refresh token is: <pre>${JSON.parse(body).refresh_token}</pre>`);
+        return res.send(`Your refresh token is: <pre>${JSON.parse(body).SPOTIFY_REFRESH_TOKEN}</pre>`);
       }
     );
   else {
     return res.send(
-      `<a href="https://accounts.spotify.com/en/authorize?response_type=code&client_id=${process.env.CLIENT_ID}&scope=user-read-currently-playing,user-read-recently-played,user-top-read&redirect_uri=${process.env.VERCEL_URL}">Get Refresh Token</a>`
+      `<a href="https://accounts.spotify.com/en/authorize?response_type=code&SPOTIFY_CLIENT_ID=${process.env.SPOTIFY_CLIENT_ID}&scope=user-read-currently-playing,user-read-recently-played,user-top-read&redirect_uri=${process.env.VERCEL_URL}">Get Refresh Token</a>`
     );
   }
 };

@@ -22,10 +22,10 @@ type TemplateDataType = {
 };
 
 var spotifyApi = new SpotifyWebApi({
-  clientId: process.env.CLIENT_ID,
-  clientSecret: process.env.CLIENT_SECRET,
+  clientId: process.env.SPOTIFY_CLIENT_ID,
+  clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
   redirectUri: process.env.VERCEL_URL,
-  refreshToken: process.env.REFRESH_TOKEN,
+  refreshToken: process.env.SPOTIFY_REFRESH_TOKEN,
 });
 
 const imageToBase64 = (images) =>
