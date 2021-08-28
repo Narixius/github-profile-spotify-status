@@ -33,6 +33,9 @@ export default (req, res) => {
 			<li>From the top navigation, go to settings</li>
 			<li>On the side abr select <b>Environment Variables</b></li>
 			<li>Scroll down and find the <b>SPOTIFY_REFRESH_TOKEN</b> variables, by clicking on the right dots, edit this variable and change it to the code above</li>
+			<li>Then from the nav menu go to the <b>Deployment</b> secrion</li>
+			<li>Redeploy the latest deploy process by clicking on the right dots of the deploy process</li>
+			<li>Wait until the end of the deployment process</li>
 		</ol>
 		<p>Then open <a href="${baseURL}">Homepage</a> and see your Spotify Status </p>
 		`);
