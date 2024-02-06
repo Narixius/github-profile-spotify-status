@@ -6,7 +6,7 @@
     "spotify-web-api-node": "^5.0.2"
   },
   "devDependencies": {
-    "@types/node": "^14.14.31",
+    "@types/node": "^20.11.16",
     "@types/spotify-web-api-node": "^5.0.3"
   }
 }
